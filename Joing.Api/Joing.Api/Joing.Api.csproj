@@ -341,9 +341,17 @@
       <Project>{1685252f-5235-419e-b569-63786aaefcdd}</Project>
       <Name>Joing.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Joing.DTO\Joing.DTO.csproj">
+      <Project>{7071D446-CD9C-4A9C-B766-645D9CFCF19C}</Project>
+      <Name>Joing.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Joing.Infra\Joing.Infra.csproj">
       <Project>{03aae61d-4418-4d7e-a6a7-45ee6b0828b7}</Project>
       <Name>Joing.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Joing.ApiService\Joing.ApiService.csproj">
+      <Project>{AE60D8DA-8D79-4DD1-B353-E673C0B695D4}</Project>
+      <Name>Joing.ApiService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

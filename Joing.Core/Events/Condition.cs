@@ -9,11 +9,12 @@ namespace Joing.Core
 {
     public class Condition : Entity
     {
-     public String Name {get; private set;}
-    public object Value {get; private set;}
-    public ConditionValueEnum ValueType {get; private set;}
-    public LogicEnum Logic {get; private set;} 
+        public string Name { get; private set; }
+        public object Value { get; private set; }
+        public ConditionValueEnum ValueType { get; private set; }
+        public LogicEnum Logic { get; private set; }
 
-    public virtual Event Event { get; set; }
+        public Guid EventId { get; set; }
+        public virtual Event Event { get; set; }
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joing.IntegrationTest", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joing.Data", "..\Joing.Data\Joing.Data.csproj", "{1685252F-5235-419E-B569-63786AAEFCDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joing.DTO", "..\Joing.DTO\Joing.DTO.csproj", "{7071D446-CD9C-4A9C-B766-645D9CFCF19C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1685252F-5235-419E-B569-63786AAEFCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1685252F-5235-419E-B569-63786AAEFCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1685252F-5235-419E-B569-63786AAEFCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7071D446-CD9C-4A9C-B766-645D9CFCF19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7071D446-CD9C-4A9C-B766-645D9CFCF19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7071D446-CD9C-4A9C-B766-645D9CFCF19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7071D446-CD9C-4A9C-B766-645D9CFCF19C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

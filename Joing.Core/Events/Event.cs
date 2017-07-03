@@ -9,8 +9,8 @@ namespace Joing.Core
 {
     public partial class Event : Entity
     {
-        public String Title { get; private set; }
-        public String Description { get; private set; }
+        public string Title { get; private set; }
+        public string Description { get; private set; }
         public Location Place { get; private set; }
         public EventType Type { get; private set; }
         public PrivacyType Privacy { get; private set; }
@@ -19,7 +19,6 @@ namespace Joing.Core
         public DateTime? EndAt { get; private set; }
         public DateTime? CanceledAt { get; private set; }
         public DateTime? InterruptedAt { get; private set; }
-
     }
 
 }

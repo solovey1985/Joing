@@ -1,18 +1,29 @@
-﻿using System;
+﻿using Joing.ApiService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
+using Joing.Core;
+using Joing.DTO;
 
 namespace Joing.Api.Controllers
 {
     public class EventController : ApiController
     {
-        // GET: api/Event
-        public IEnumerable<string> Get()
+        IEventApiService apiService;
+        public EventController() { }
+        public EventController(IEventApiService service)
         {
-            return new string[] { "value1", "value2" };
+            apiService = service;
+        }
+        // GET: api/Event
+        public IEnumerable<EventDto> Get()
+        {
+            List<Event> events = apiService.GetAll().ToList();
+            return events.Select(e => Mapper.Map<EventDto>(e)).ToList();
         }
 
         // GET: api/Event/5

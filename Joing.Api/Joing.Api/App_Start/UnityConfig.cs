@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler;
 using Joing.Api.Controllers;
+using Joing.ApiService;
 
 namespace Joing.Api.App_Start
 {
@@ -51,6 +52,7 @@ namespace Joing.Api.App_Start
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<IEventRepository, EventRepository>();
             container.RegisterType<IEventUnitOfWork, EventUnitOfWork>();
+            container.RegisterType<IEventApiService, EventApiService>();
 
            
 

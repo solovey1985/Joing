@@ -27,24 +27,27 @@ namespace Joing.Api.Controllers
         }
 
         // GET: api/Event/5
-        public string Get(int id)
+        public EventDto Get(Guid id)
         {
-            return "value";
+            return Mapper.Map<EventDto>(apiService.GetById(id));
         }
 
         // POST: api/Event
-        public void Post([FromBody]string value)
+        public void Post([FromBody]EventDto evnt)
         {
+            apiService.Insert(Mapper.Map<Event>(evnt));
         }
 
         // PUT: api/Event/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]EventDto evnt)
         {
+            apiService.Update(Mapper.Map<Event>(evnt));
         }
 
         // DELETE: api/Event/5
-        public void Delete(int id)
+        public void DeleteById(Guid id)
         {
+            apiService.DeleteById(id);
         }
     }
 }

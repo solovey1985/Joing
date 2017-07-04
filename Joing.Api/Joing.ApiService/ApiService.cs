@@ -20,5 +20,30 @@ namespace Joing.ApiService
         {
             return repository.GetAll();
         }
+
+        public virtual T GetById(Guid id)
+        {
+            return repository.GetById(id);
+        }
+
+        public virtual bool Insert(T entity)
+        {
+            entity.CreatedAt = DateTime.Now;
+            return repository.Insert(entity);
+        }
+
+       public bool Update(T entity)
+        {
+            return repository.Update(entity);
+        }
+        public bool Delete(T entity)
+        {
+            return repository.Delete(entity);
+        }
+
+        public bool DeleteById(Guid id)
+        {
+            return repository.DeleteById(id);
+        }
     }
 }

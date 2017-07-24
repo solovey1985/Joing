@@ -22,3 +22,19 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
     </div>
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://api.yalldoo.com/api/event",
+            method: "GET",
+            conentType: "application/json; charset=utf-8",
+            headers: {
+                Origin:"api.com"
+            }
+            
+        }).done(function (data) {
+            console.log(data);
+        })
+    });
+</script>

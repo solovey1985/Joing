@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ConditionDto.cs" />
     <Compile Include="EventDto.cs" />
+    <Compile Include="LocationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Condition.action.cs" />
     <Compile Include="Events\Condition.cs" />
     <Compile Include="Events\Event.action.cs" />
     <Compile Include="Events\Event.cs" />

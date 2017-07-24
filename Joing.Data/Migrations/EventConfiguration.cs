@@ -9,7 +9,7 @@ namespace Joing.Data.Migrations
     {
         public EventConfiguration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\Event";
         }
 

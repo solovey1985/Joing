@@ -1,13 +1,14 @@
-﻿using Joing.Infra;
+﻿using Joing.Core;
+using Joing.Infra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Joing.Core
+namespace Joing.Dto
 {
-    public partial class Location : Entity
+    public partial class LocationDto : EntityDto
     {
         public string Address { get; private set; }
         public double? Longitude { get; private set; }

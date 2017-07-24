@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Joing.Core
 {
-    public class Condition : Entity
+    public partial class Condition : Entity
     {
         public string Name { get; private set; }
         public object Value { get; private set; }

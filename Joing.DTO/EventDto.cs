@@ -1,4 +1,5 @@
 ﻿using Joing.Core;
+using Joing.Dto;
 using Joing.Infra;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,6 @@ namespace Joing.DTO
         public DateTime? EndAt { get; set; }
         public DateTime? CanceledAt { get; set; }
         public DateTime? InterruptedAt { get; set; }
-        public string Address { get; private set; }
-        public double? Longitude { get; private set; }
-        public double? Latitude { get; private set; }
-        public string MapUrl { get; private set; }
-        public LocationType LocationType { get; set; }
+        public LocationDto Place { get; set; }
     }
 }

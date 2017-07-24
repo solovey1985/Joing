@@ -6,6 +6,11 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Joing.Web.Models;
+using Microsoft.Owin.Security.Facebook;
+using Newtonsoft.Json;
+using System.Web;
+using System.Net.Http;
+using System.Net;
 
 namespace Joing.Web
 {
@@ -50,13 +55,17 @@ namespace Joing.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "YmkL3GH4japNbFwQkTPoKJGjv",
+               consumerSecret: "rlyIc69HCqpOgn7hBX1dSFJ7TRUgUCmoSgd32Xu4e8k96eLXSK");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(new FacebookAuthenticationOptions
+            {
+                AppId = "508357766163081",
+                AppSecret = "ca8974ad0abe8320adaf4a823420d65e",
+                BackchannelHttpHandler = new FacebookBackChannelHandler()
+            });
+   
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
@@ -64,5 +73,37 @@ namespace Joing.Web
             //    ClientSecret = ""
             //});
         }
+    }
+    public class FacebookBackChannelHandler : HttpClientHandler
+    {
+        protected override async System.Threading.Tasks.Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        {
+            var result = await base.SendAsync(request, cancellationToken);
+            if (!request.RequestUri.AbsolutePath.Contains("access_token"))
+                return result;
+
+            // For the access token we need to now deal with the fact that the response is now in JSON format, not form values. Owin looks for form values.
+            var content = await result.Content.ReadAsStringAsync();
+            var facebookOauthResponse = JsonConvert.DeserializeObject<FacebookOauthResponse>(content);
+
+            var outgoingQueryString = HttpUtility.ParseQueryString(string.Empty);
+            outgoingQueryString.Add(nameof(facebookOauthResponse.access_token), facebookOauthResponse.access_token);
+            outgoingQueryString.Add(nameof(facebookOauthResponse.expires_in), facebookOauthResponse.expires_in + string.Empty);
+            outgoingQueryString.Add(nameof(facebookOauthResponse.token_type), facebookOauthResponse.token_type);
+            var postdata = outgoingQueryString.ToString();
+
+            var modifiedResult = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(postdata)
+            };
+
+            return modifiedResult;
+        }
+    }
+    public class FacebookOauthResponse
+    {
+        public string access_token { get; set; }
+        public string token_type { get; set; }
+        public int expires_in { get; set; }
     }
 }

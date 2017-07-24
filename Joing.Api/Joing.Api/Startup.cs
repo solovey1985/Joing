@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System.Web.Cors;
 
 [assembly: OwinStartup(typeof(Joing.Api.Startup))]
 

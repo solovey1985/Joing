@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
+using System.Web.Cors;
 
 namespace Joing.Api
 {
@@ -11,7 +12,7 @@ namespace Joing.Api
             // Настройка Web API для использования только проверки подлинности посредством маркера-носителя.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-
+            
             // Маршруты Web API
             config.MapHttpAttributeRoutes();
 

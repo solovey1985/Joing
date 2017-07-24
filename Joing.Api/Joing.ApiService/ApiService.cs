@@ -28,7 +28,7 @@ namespace Joing.ApiService
 
         public virtual bool Insert(T entity)
         {
-            entity.CreatedAt = DateTime.Now;
+            entity = (T)entity.Create(entity);
             return repository.Insert(entity);
         }
 

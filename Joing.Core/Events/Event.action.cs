@@ -23,5 +23,11 @@ namespace Joing.Core {
             };
              return newEvent;
         }
+
+        public Event Create(Event newEvent)
+        {
+            base.Create(newEvent);
+            return newEvent;
+        }
     }
 }

@@ -23,7 +23,14 @@ namespace Joing.Infra
         {
 
         }
-  
+        public virtual Entity Create(Entity entity)
+        {
+            entity.Id = Guid.NewGuid();
+            entity.CreatedAt = DateTime.Now;
+            entity.UpadatedAt = DateTime.Now;
+            return entity;
+        }
+     
         public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid CreateBy { get; set; }

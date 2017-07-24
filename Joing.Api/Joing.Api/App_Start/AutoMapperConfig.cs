@@ -7,6 +7,7 @@ using AutoMapper;
 using Joing.Api.Models;
 using Joing.Core;
 using Joing.DTO;
+using Joing.Dto;
 
 namespace Joing.Api.App_Start
 {
@@ -29,26 +30,17 @@ namespace Joing.Api.App_Start
     {
         public DomainMapper()
         {
-            CreateMap<Event, EventDto>()
-                .ForMember(dest=>dest.Address, opt=>opt.MapFrom(src=>src.Place.Address))
-                .ForMember(dest=>dest.MapUrl, opt=>opt.MapFrom(src=>src.Place.MapUrl))
-                .ForMember(dest=>dest.Latitude, opt=>opt.MapFrom(src=>src.Place.Latitude))
-                .ForMember(dest=>dest.Longitude, opt=>opt.MapFrom(src=>src.Place.Longitude))
-                ;
-            CreateMap<EventDto, Event>()
-               .ForMember(dest => dest.Place, opt => opt.ResolveUsing<LocationResolver>())
-                ;
+            CreateMap<Condition, ConditionDto>();
+            CreateMap<ConditionDto, Condition>();
+
+            CreateMap<Location, LocationDto>();
+            CreateMap<LocationDto, Location>();
+
+            CreateMap<Event, EventDto>();
+            CreateMap<EventDto, Event>();
 
         }
 
-        public class LocationResolver : IValueResolver<EventDto, Event, Location>
-        {
-            public Location Resolve(EventDto source, Event destination, Location destMember, ResolutionContext context)
-            {
-                return Location.Create(source.Address);
-            }
-
-           
-        }
+   
     }
 }
